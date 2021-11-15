@@ -8,6 +8,6 @@
 
 <body>
 
-{{ $slot }}
+{{ $slots }}
 
 </body>
