@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Post;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
+use App\Models\Category;
 
 
 /*
@@ -19,10 +20,8 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 
 Route::get('/', function () {
 
-    $posts = Post::get();
-
     return view('posts', [
-        'posts' => $posts
+        'posts' => Post::with('category')->get()
     ]);
 
 });
