@@ -4,6 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Emadadly\LaravelUuid\Uuids;
+use Database\Seeders\User;
+use Illuminate\Support\Str;
 
 class CreateUsersTable extends Migration
 {
@@ -15,8 +17,8 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->uuid('uuid')->unique();
-            $table->primary('uuid');
+            $table->uuid('id')->unique();
+            $table->primary('id');
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
