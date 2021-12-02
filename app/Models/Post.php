@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Category;
+use Illuminate\Database\Seeder;
 
 class Post extends Model
 {
@@ -15,5 +16,10 @@ class Post extends Model
     public function Category(){
 
         return $this->belongsTo(Category::class);
+    }
+
+    public function user(){
+
+        return $this->belongsTo(User::class);
     }
 }

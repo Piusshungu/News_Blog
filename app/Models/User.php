@@ -7,16 +7,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Emadadly\LaravelUuid\Uuids;
+// use Emadadly\LaravelUuid\Uuids;
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-    use Uuids;
+
+    // use Uuids;
 
     protected $table = 'users';
-    protected $primaryKey = null;
-    public $incrementing = false;
+    public $incrementing = true;
+    
     
 
     /**
@@ -24,11 +25,7 @@ class User extends Authenticatable
      *
      * @var string[]
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password'
-    ];
+    protected $guarded = ['id'];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -48,4 +45,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function posts(){
+
+        return $this->hasMany(Post::class);
+    }
 }
