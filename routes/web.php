@@ -2,8 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Post;
-use Illuminate\Database\Eloquent\Model;
-use Spatie\YamlFrontMatter\YamlFrontMatter;
 use App\Models\Category;
 
 
@@ -19,15 +17,13 @@ use App\Models\Category;
 */
 
 Route::get('/', function () {
-
     return view('posts', [
-        'posts' => Post::with('category')->get()
+        'posts' => Post::latest()->with('category')->get()
     ]);
 });
 
 
 Route::get('posts/{post:slug}', function(Post $post) {
-    
     return view('post', [
         'post' => $post
     ]);

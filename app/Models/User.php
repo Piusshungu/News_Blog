@@ -17,8 +17,6 @@ class User extends Authenticatable
 
     protected $table = 'users';
     public $incrementing = true;
-    
-    
 
     /**
      * The attributes that are mass assignable.
