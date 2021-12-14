@@ -34,12 +34,20 @@
                     </svg> 
                 </button>
 
-                    <div x-show="show" class="py-2 absolute bg-gray-100 w-32 mt-2 rounded-xl z-50" style="display: none">
+                <div x-show="show" class="py-2 absolute bg-gray-100 w-32 mt-2 rounded-xl z-50" style="display: none">
 
+                <a href="/"
+                         class="block text-left px-3 text-xs leading-5 hover:bg-blue-500 focus:bg-gray-300">
+                         
+                         All</a>
+                    
                     @foreach($categories as $category)
 
                         <a href="/categories/{{ $category->slug }}"
-                         class="block text-left px-3 text-xs leading-5 hover:bg-blue-500 focus:bg-gray-300">
+                         class="block text-left px-3 text-xs leading-5 hover:bg-blue-500 focus:bg-gray-300
+
+                         {{ isset($currentCategory) && $currentCategory->id === $category->id ? 'bg-blue-500 text-white' : ''}}
+                         ">
                          
                          {{ ucwords($category->name) }}</a>
                          @endforeach
