@@ -3,7 +3,7 @@
                 Latest <span class="text-blue-500">News Blog</span> News
             </h1>
 
-            <h2 class="inline-flex mt-2">By Pius Shungu <img src="./images/lary-head.svg"
+            <h2 class="inline-flex mt-2">By Pius Shungu <img src="/images/lary-head.svg"
                                                                alt="Head of Lary the mascot"></h2>
 
             <p class="text-sm mt-14">
@@ -35,10 +35,16 @@
                 </button>
 
                     <div x-show="show" class="py-2 absolute bg-gray-100 w-32 mt-2 rounded-xl z-50" style="display: none">
-                        <a href="#" class="block text-left px-3 text-xs leading-5 hover:bg-blue-500 focus:bg-gray-300">One</a>
-                        <a href="#" class="block text-left px-3 text-xs leading-5 hover:bg-blue-500 focus:bg-gray-300">Two</a>
-                        <a href="#" class="block text-left px-3 text-xs leading-5 hover:bg-blue-500 focus:bg-gray-300">Three</a>
-                    </div>
+
+                    @foreach($categories as $category)
+
+                        <a href="/categories/{{ $category->slug }}"
+                         class="block text-left px-3 text-xs leading-5 hover:bg-blue-500 focus:bg-gray-300">
+                         
+                         {{ ucwords($category->name) }}</a>
+                         @endforeach
+
+                        </div>
                 </div>
                     <!-- <select class="flex-1 appearance-none bg-transparent py-2 pl-3 pr-9 text-sm font-semibold">
                         <option value="category" disabled selected>Category
