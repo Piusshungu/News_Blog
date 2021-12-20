@@ -22,6 +22,8 @@
 
 @endif
 
+{{ $posts->links() }}
+
 @else
 
 <p class="text-center">No Post yet. Please check again later</p>
