@@ -3,14 +3,11 @@
                 Latest <span class="text-blue-500">News Blog</span> News
             </h1>
 
-            <h2 class="inline-flex mt-2">By Pius Shungu <img src="/images/lary-head.svg"
-                                                               alt="Head of Lary the mascot"></h2>
-
             <p class="text-sm mt-14">
                Trust me, this blog is going to be an awewsome source of information in Tanzania. Just wait and see what happen 
             </p>
 
-            <div class="space-y-2 lg:space-y-0 lg:space-x-4 mt-8">
+            <div class="space-y-2 lg:space-y-0 lg:space-x-4 mt-4">
                 <!--  Category -->
                 <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl">
 
@@ -36,15 +33,12 @@
 
                 <div x-show="show" class="py-2 absolute bg-gray-100 w-32 mt-2 rounded-xl z-50" style="display: none">
 
-                <a href="/"
-                         class="block text-left px-3 text-xs leading-5 hover:bg-blue-500 focus:bg-gray-300">
-                         
-                         All</a>
-                    
+                <x-dropdown-items href="/">All</x-dropdown-items>
+
                     @foreach($categories as $category)
 
                         <a href="/categories/{{ $category->slug }}"
-                         class="block text-left px-3 text-xs leading-5 hover:bg-blue-500 focus:bg-gray-300
+                         class="block text-left px-3 text-xs leading-5 hover:bg-blue-500 focus:bg-gray-300 overFlow-auto max-h-52
 
                          {{ isset($currentCategory) && $currentCategory->id === $category->id ? 'bg-blue-500 text-white' : ''}}
                          ">
@@ -67,7 +61,7 @@
                    
                 </div>
 
-                <!-- Other Filters -->
+                Other Filters
                 <div class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl">
                     <select class="flex-1 appearance-none bg-transparent py-2 pl-3 pr-9 text-sm font-semibold">
                         <option value="category" disabled selected>Other Filters
