@@ -32,7 +32,7 @@ Route::get('categories/{category:slug}', function(Category $category){
     ]);
 });
 
-Route::get('register', [RegisterController::class, 'userRegistration']);
+Route::get('register', [RegisterController::class, 'userRegistration'])->middleware('guest');
 
-Route::post('register', [RegisterController::class, 'storeUser']);
+Route::post('register', [RegisterController::class, 'storeUser'])->middleware('guest');
 
