@@ -33,5 +33,6 @@ Route::get('categories/{category:slug}', function(Category $category){
 });
 
 Route::get('register', [RegisterController::class, 'userRegistration']);
+
 Route::post('register', [RegisterController::class, 'storeUser']);
 
