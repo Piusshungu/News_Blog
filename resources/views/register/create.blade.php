@@ -20,10 +20,11 @@
                 type="text"
                 name="name"
                 id="name"
+                value="{{ old('name')}}"
                 required
                 >
 
-                @error('')
+                @error('name')
                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                 @enderror
 
@@ -37,10 +38,11 @@
                 type="text"
                 name="username"
                 id="username"
+                value="{{ old('username')}}"
                 required
                 >
 
-                @error('')
+                @error('username')
                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                 @enderror
 
@@ -54,10 +56,11 @@
                 type="email"
                 name="email"
                 id="email"
+                value="{{ old('email')}}"
                 required
                 >
 
-                @error('')
+                @error('email')
                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                 @enderror
                 
@@ -75,7 +78,7 @@
                 required
                 >
 
-                @error('')
+                @error('password')
                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                 @enderror
                 
@@ -88,6 +91,20 @@
                  Submit   
                 </button>
             </div>
+
+        @if($errors->any())
+
+            <ul>
+
+              @foreach($errors->all() as $error)
+
+            <li class="text-red-500 text-xs">{{ $error }}</li>
+
+              @endforeach
+
+            </ul>
+
+        @endif
 
         </form>
     </main>
