@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\Category;
 use App\Models\User;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SessionController;
 
 
 /*
@@ -35,4 +36,6 @@ Route::get('categories/{category:slug}', function(Category $category){
 Route::get('register', [RegisterController::class, 'userRegistration'])->middleware('guest');
 
 Route::post('register', [RegisterController::class, 'storeUser'])->middleware('guest');
+
+Route::post('logout', [SessionController::class, 'destroySession']);
 
