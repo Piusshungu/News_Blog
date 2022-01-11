@@ -20,6 +20,8 @@ class SessionController extends Controller
 
         if(auth()->attempt($attributes)){
 
+            session()->regenerate();
+
             return redirect('/')->with('success', 'Welcome back');
         }
 
