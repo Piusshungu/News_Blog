@@ -54,6 +54,8 @@
 
                 <section class="col-span-8 col-start-5 mt-10 space-y-6">
 
+                @auth
+
                 <form method="POST" action="/posts/{{ $post->slug }}/comments" class="border border-gray-200 p-6 rounder-xl">
                     @csrf 
 
@@ -86,6 +88,8 @@
                 <x-post-comment :comment="$comment" />
 
                 @endforeach
+
+                @endauth
                 
 
                 </section>
