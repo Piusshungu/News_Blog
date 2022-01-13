@@ -54,7 +54,7 @@
 
                 <section class="col-span-8 col-start-5 mt-10 space-y-6">
 
-                <form method="POST" action="#" class="border border-gray-200 p-6 rounder-xl">
+                <form method="POST" action="/posts/{{ $post->slug }}/comments" class="border border-gray-200 p-6 rounder-xl">
                     @csrf 
 
                     <header class="flex rounded-xl items-center">

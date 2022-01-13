@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\User;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\PostCommentsController;
 
 
 /*
@@ -42,5 +43,7 @@ Route::get('login', [SessionController::class, 'userLogin'])->middleware('guest'
 Route::post('login', [SessionController::class, 'createSession'])->middleware('guest');
 
 Route::post('logout', [SessionController::class, 'destroySession'])->middleware('auth');
+
+Route::post('posts/{post:slug}/comments' , [PostCommentsController::class, 'store']);
 
 
