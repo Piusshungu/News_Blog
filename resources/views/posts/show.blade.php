@@ -53,8 +53,39 @@
                 </div>
 
                 <section class="col-span-8 col-start-5 mt-10 space-y-6">
+
+                <form method="POST" action="#" class="border border-gray-200 p-6 rounder-xl">
+                    @csrf 
+
+                    <header class="flex rounded-xl items-center">
+
+                    <img src="https://i.pravatar.cc/60?u={{ auth()->id() }}" alt="" width="30" height="30" class="rounded-full">
+
+                    <h2 class="ml-4">Want to comment something?</h2>
                     
-                <x-post-comment/>
+                    </header>
+
+                    <div>
+
+                    <textarea name="body" cols="30" rows="5" class="w-full mt-4 text-sm focus:outline-none focus:ring" placeholder="Comment Here">
+
+                    </textarea>
+
+                    </div>
+
+                    <div class="flex justify-end mt-10 border-t border-gray-200 pt-6">
+
+                    <button type="submit" class="bg-blue-500 text-white font-semibold text-xs rounded-2xl px-2 py-2 hover:bg-blue-600">Post your comment</button>
+
+                    </div>
+
+                </form>
+
+                @foreach ($post->comments as $comment)
+                    
+                <x-post-comment :comment="$comment" />
+
+                @endforeach
                 
 
                 </section>
