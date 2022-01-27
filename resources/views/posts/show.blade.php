@@ -61,7 +61,7 @@
 
                     <header class="flex rounded-xl items-center">
 
-                    <img src="https://i.pravatar.cc/60?u={{ auth()->id() }}" alt="" width="30" height="30" class="rounded-full">
+                    <img src="https://i.pravatar.cc/60?u={{ auth()->user()->id }}" alt="" width="30" height="30" class="rounded-full">
 
                     <h2 class="ml-4">Want to comment something?</h2>
                     
@@ -69,9 +69,14 @@
 
                     <div>
 
-                    <textarea name="body" cols="30" rows="5" class="w-full mt-4 text-sm focus:outline-none focus:ring" placeholder="Comment Here">
+                    <textarea name="body" cols="30" rows="5" class="w-full mt-4 text-sm focus:outline-none focus:ring" placeholder="Comment Here" required> </textarea>
 
-                    </textarea>
+                   
+                    @error('body')
+
+                    <span class="text-xs text-red-500">{{ $message }}</span>
+
+                    @enderror
 
                     </div>
 
